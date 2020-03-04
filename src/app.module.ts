@@ -3,13 +3,12 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { NegotiationsModule } from "./negotiations/negotiations.module";
-
-const url: string = "mongodb://localhost/nestjs-demo";
+import { dbUrl } from "./properties";
 
 @Module({
   imports: [
   	NegotiationsModule,
-    MongooseModule.forRoot(url, {
+    MongooseModule.forRoot(dbUrl, {
      useNewUrlParser: true,
      useUnifiedTopology: true
   }),
